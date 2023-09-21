@@ -1,0 +1,132 @@
+{% load static %}
+<html>
+<head>
+
+    <title>
+        {% block 'title' %}
+       Customer Home
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<style>
+
+ {% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+ /* Styles for form inputs */
+input[type=text], input[type=password], input[type=number], input[type=email], select, input[type=date] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+label {
+  display: block;
+  padding: 12px 0;
+  font-weight: bold;
+  color: white;
+}
+
+
+ nav{
+       display:flex;
+       align-items:center;
+       justify-content:space-between;
+       padding-top:40px;
+       padding-left:10px;
+       padding-right:10px;
+       }
+
+          .back-video{
+            position: fixed;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            background-size: auto;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .logo{
+        color:white;
+        font-size:28px;
+        }
+        span{
+        color:#ea1538
+        }
+         nav ul li{
+        list-style-type:none;
+        display: inline-block;
+        padding: 10px 20px;
+        }
+        nav ul li a:hover{
+        color: #ea1538;
+        transition: .3s;
+        }
+        nav ul li a{
+        color:white;
+        text-decoration:none;
+        font-weight: bold;
+        }
+
+
+.matter{
+color:white;
+}
+hero{
+
+        {% endblock %}
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+<br>
+
+ <header>
+        <nav>
+            <h1 class="logo" >Astrology<span >Predictions</span></h1>
+
+            <ul>
+                <li><a href="{% url 'apshome' %}">Home</a></li>
+                <li><a href="{% url 'apsprofile' %}">Profile</a></li>
+                <li><a href="{% url 'apschangepwd' %}">Change Password</a></li>
+                <li><a href="{% url 'viewezodiacsigns' %}">View Zodiac Signs</a></li>
+                <li><a href="{% url 'apslogout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+               <font color="white"> <h4 align="right">Hi, {{aname}}</h4></font>
+
+{% block 'body' %}
+
+
+{% endblock %}
+<div>
+        <video autoplay loop muted plays-inline class="back-video">
+            <source  src="{% static 'images/video.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+
+
+
+</body>
+</html>

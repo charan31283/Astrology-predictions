@@ -1,0 +1,118 @@
+{% extends 'apshome.html' %}
+{% load static %}
+<html>
+<head>
+
+    <title>
+        {% block 'title' %}
+       Display Zodiac Signs
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<style>
+
+ {% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+nav{
+       display:flex;
+       align-items:center;
+       justify-content:space-between;
+       padding-top:40px;
+       padding-left:10px;
+       padding-right:10px;
+       }
+
+          .back-video{
+            position: fixed;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            background-size: auto;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .logo{
+        color:white;
+        font-size:28px;
+        }
+        span{
+        color:#ea1538
+        }
+         nav ul li{
+        list-style-type:none;
+        display: inline-block;
+        padding: 10px 20px;
+        }
+        nav ul li a:hover{
+        color: #ea1538;
+        transition: .3s;
+        }
+        nav ul li a{
+        color:white;
+        text-decoration:none;
+        font-weight: bold;
+        }
+
+
+        .matter{
+        color:white;
+        }        {% endblock %}
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+{% block 'body' %}
+
+
+<font color="white" ><h2 align="center"><u>Zodiac Signs</u></h2></font>
+
+<br>
+
+<table align="center" border="2" class="matter">
+    <tr style="font-weight:bold">
+        <td>ID</td>
+        <td>Cateogry</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Image</td>
+    </tr>
+
+    {% for zodiac in zodiaclist %}
+    <tr>
+        <td>{{zodiac.id}}</td>
+        <td>{{zodiac.category}}</td>
+         <td>{{zodiac.name}}</td>
+         <td>{{zodiac.description}}</td>
+         <td>
+             <img src="{{zodiac.image.url}}" width="25%" height="25%">
+         </td>
+
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+
+
+
+</body>
+</html>

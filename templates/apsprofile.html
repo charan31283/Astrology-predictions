@@ -1,0 +1,110 @@
+{% extends 'apshome.html' %}
+{% load static %}
+<html>
+<head>
+
+    <title>
+        {% block 'title' %}
+        Customer Profile
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<style>
+
+ {% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+       nav{
+       display:flex;
+       align-items:center;
+       justify-content:space-between;
+       padding-top:40px;
+       padding-left:10px;
+       padding-right:10px;
+       }
+
+          .back-video{
+            position: fixed;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            background-size: auto;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .logo{
+        color:white;
+        font-size:28px;
+        }
+        span{
+        color:#ea1538
+        }
+         nav ul li{
+        list-style-type:none;
+        display: inline-block;
+        padding: 10px 20px;
+        }
+        nav ul li a:hover{
+        color: #ea1538;
+        transition: .3s;
+        }
+        nav ul li a{
+        color:white;
+        text-decoration:none;
+        font-weight: bold;
+        }
+
+
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  color:white;
+}
+
+
+        {% endblock %}
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+{% block 'body' %}
+
+<div class="card" >
+
+    <p><b>{{aps.fullname}}</b></p>
+
+    <p>{{emp.department}}</p>
+
+    <p>Email: {{aps.email}}</p>
+
+    <p>Contact: {{aps.contact}}</p>
+
+    <p><i>Location: {{aps.location}}</i></p>
+
+
+</div>
+
+{% endblock %}
+
+
+
+</body>
+</html>

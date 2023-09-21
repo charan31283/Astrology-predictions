@@ -1,0 +1,139 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+     <title>
+        {% block 'title' %}
+        View Zodiac Signs
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<style>
+
+ {% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+nav{
+       display:flex;
+       align-items:center;
+       justify-content:space-between;
+       padding-top:40px;
+       padding-left:10px;
+       padding-right:10px;
+       }
+
+          .back-video{
+            position: fixed;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            background-size: auto;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .logo{
+        color:white;
+        font-size:28px;
+        }
+        span{
+        color:#ea1538
+        }
+         nav ul li{
+        list-style-type:none;
+        display: inline-block;
+        padding: 10px 20px;
+        }
+        nav ul li a:hover{
+        color: #ea1538;
+        transition: .3s;
+        }
+        nav ul li a{
+        color:white;
+        text-decoration:none;
+        font-weight: bold;
+        }
+
+input[type=text],input[type=password],input[type=number],input[type=email],
+select,input[type=date],input[type=file]
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label
+{
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+  color:white;
+}
+  .matter{
+  color:white;
+  }
+
+  {% endblock %}
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+{% block 'body' %}
+
+
+<font color="white"><h2 align="center"><u>View All Zodiac signs</u></h2>
+
+Total Zodiac Signs = {{count}}</font>  <br><br>
+
+<table align="center" border="2" class="matter">
+    <tr style="font-weight:bold">
+        <td>ID</td>
+        <td>Cateogry</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Image</td>
+    </tr>
+
+    {% for zodiac in zodiaclist %}
+    <tr>
+        <td>{{zodiac.id}}</td>
+        <td>{{zodiac.category}}</td>
+         <td>{{zodiac.name}}</td>
+         <td>{{zodiac.description}}</td>
+         <td>
+             <img src="{{zodiac.image.url}}" width="25%" height="25%">
+         </td>
+
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+
+
+
+</body>
+</html>

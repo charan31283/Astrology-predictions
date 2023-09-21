@@ -1,0 +1,172 @@
+{% load static %}
+<html>
+<head>
+
+    <title>
+        {% block 'title' %}
+        Contact Us
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<style>
+{% block 'style' %}
+
+
+ body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  color: white;
+  padding: 20px;
+}
+ .imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+       nav{
+       display:flex;
+       align-items:center;
+       justify-content:space-between;
+       padding-top:40px;
+       padding-left:10px;
+       padding-right:10px;
+       }
+
+          .back-video{
+            position: fixed;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            background-size: auto;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .logo{
+        color:white;
+        font-size:28px;
+        }
+        span{
+        color:#ea1538
+        }
+         nav ul li{
+        list-style-type:none;
+        display: inline-block;
+        padding: 10px 20px;
+        }
+        nav ul li a:hover{
+        color: #ea1538;
+        transition: .3s;
+        }
+        nav ul li a{
+        color:white;
+        text-decoration:none;
+        font-weight: bold;
+        }
+
+        .matter{
+            color:white;
+        }
+
+
+
+     {% endblock %}
+
+    </style>
+
+
+
+</head>
+<body>
+<br>
+
+ <header>
+        <nav>
+             <h1 align=center><font color="white">Astrology</font> <span>Predictions</span></h1>
+
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'apsregistration' %}">Registration</a></li>
+                <li><a href="{% url 'apslogin' %}">Login</a></li>
+                <li><a href="{% url 'payment' %}">Payment</a></li>
+                <li><a href="{% url 'feedback' %}">Feedback</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+
+<br>
+
+
+
+
+
+<h3>Contact Form</h3>
+
+<div class="container">
+  <form action="/action_page.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+
+{% block 'body' %}
+{% endblock %}
+ <div>
+        <video autoplay loop muted plays-inline class="back-video">
+            <source  src="{% static 'images/video.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+
+
+</body>
+</html>
+</body>
+</html>

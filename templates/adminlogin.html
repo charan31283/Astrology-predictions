@@ -1,0 +1,136 @@
+{% extends 'index.html' %}
+{% load static %}
+
+<html>
+<head>
+
+     <title>
+        {% block 'title' %}
+      Admin Login
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<style>
+
+ {% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+nav{
+       display:flex;
+       align-items:center;
+       justify-content:space-between;
+       padding-top:40px;
+       padding-left:10px;
+       padding-right:10px;
+       }
+
+          .back-video{
+            position: fixed;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            background-size: auto;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .logo{
+        color:white;
+        font-size:28px;
+        }
+        span{
+        color:#ea1538
+        }
+         nav ul li{
+        list-style-type:none;
+        display: inline-block;
+        padding: 10px 20px;
+        }
+        nav ul li a:hover{
+        color: #ea1538;
+        transition: .3s;
+        }
+        nav ul li a{
+        color:white;
+        text-decoration:none;
+        font-weight: bold;
+        }
+
+
+input[type=text],input[type=password],input[type=number],input[type=email],
+select,input[type=date]
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label
+{
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+  color:white;
+}
+{% endblock %}
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+{% block 'body' %}
+
+<h3 align="center"><mark>{{msg}}</mark></h3>
+
+<font color="white"><h3 align="Center"><u>Admin Login</u></h3></font>
+
+<form method="post" action="{% url 'checkadminlogin' %}">
+    {% csrf_token %}
+
+<table align=center>
+
+<tr>
+<td><label>Username</label></td>
+<td><input type="text" name="ausername" required="required"/></td>
+</tr>
+
+<tr><td></td></tr>
+
+<tr>
+<td><label>Password</label></td>
+<td><input type="password" name="apassword" required="required"/></td>
+</tr>
+
+<tr><td></td></tr>
+<tr><td></td></tr>
+
+<tr align=center>
+<td colspan=2><input type="submit" value="Login" class="button"></td>
+</tr>
+
+</table>
+
+</form>
+
+
+{% endblock %}
+
+</body>
+</html>
